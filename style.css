@@ -1,0 +1,9 @@
+#hex_grid > svg > g > g :hover {
+    fill: lightgray;
+}
+
+.table_cell {
+    border: 2px solid black;
+    padding: 5px 10px;
+    max-width: 200px;
+}
