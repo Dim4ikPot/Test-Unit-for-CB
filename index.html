@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Test Unit for CB</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="hex_grid" style="position: absolute; top: 150px;">
+        <svg>
+            <g transform="rotate(-90)" fill="white" stroke="black"></g>
+        </svg>
+    </div>
+    <div>
+        <table style="float: left;">
+            <tbody style="text-align: center;">
+                <tr>
+                    <td>L</td>
+                    <td><input id="L_Input" type="range" min="0" max="30" oninput="SetInputVisualInfo(this.value, 'L');" /></td>
+                    <td id="L_Info"></td>
+                </tr>
+                <tr>
+                    <td>M</td>
+                    <td><input id="M_Input" type="range" min="0" max="30" oninput="SetInputVisualInfo(this.value, 'M');" /></td>
+                    <td id="M_Info"></td>
+                </tr>
+                <tr>
+                    <td>N</td>
+                    <td><input id="N_Input" type="range" min="0" max="30" oninput="SetInputVisualInfo(this.value, 'N');" /></td>
+                    <td id="N_Info"></td>
+                </tr>
+                <tr>
+                    <td colspan="3"><input id="createHexogonGrid" type="button" value="Пострить сетку" onclick="CreateHexagonGrid();" /></td>
+                </tr>
+            </tbody>
+        </table>
+        <table id="autoFillRegion" style="float: left; margin-left: 100px; display: none;">
+            <tbody style="text-align: center;">
+                <tr>
+                    <td colspan="2">Вероятность заполнения</td>
+                </tr>
+                <tr>
+                    <td><input id="probability_Input" type="range" min="1" max="99" oninput="SetInputVisualInfo(this.value, 'probability');" /></td>
+                    <td id="probability_Info"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input id="createHexogonGrid" type="button" value="АВТО" onclick="AutoFilling();" /></td>
+                </tr>
+            </tbody>
+        </table>
+        <table id="domainInfo" style="float: left; margin-left: 100px; border-collapse: collapse; display: none;">
+            <thead style="text-align: center;">
+                <tr>
+                    <th class="table_cell" rowspan="2">
+                        Вероятность
+                    </th>
+                    <th class="table_cell" colspan="2">
+                        Количество доменов в решётке
+                    </th>
+                    <th class="table_cell" rowspan="2">
+                        Количество ячеек в решётке (L;N;M), из них имеющих значение 1
+                    </th>
+                </tr>
+                <tr>
+                    <th class="table_cell">
+                        Всего
+                    </th>
+                    <th class="table_cell">
+                        Из них неодносвязных
+                    </th>
+                </tr>
+            </thead>
+            <tbody style="text-align: center;"></tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
