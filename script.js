@@ -1,8 +1,8 @@
-const m_workZone    = document.getElementById("hex_grid");                                              //переменная для обновления содержимой векторной графики в svg
-const m_domainInfo = document.querySelector("#domainInfo > tbody");                                    //переменная таблицы 
-const m_autoFillRegion = document.getElementById("autoFillRegion");
-const m_domainInfoRegion = document.getElementById("domainInfo");
-const m_neighbors   = [[+1, -1, 0], [0, -1, +1], [-1, 0, +1], [-1, +1, 0], [0, +1, -1], [+1, 0, -1]];   //массив со всеми возможными вариантам координат для поиска соседей выбранного гексогена
+const m_workZone         = document.getElementById("hex_grid");                                            //переменная для обновления содержимой векторной графики в svg
+const m_domainInfo       = document.querySelector("#domainInfo > tbody");                                  //переменная таблицы 
+const m_autoFillRegion   = document.getElementById("autoFillRegion");                                      //регион с автозаполнением
+const m_domainInfoRegion = document.getElementById("domainInfo");                                          //регион с таблицей
+const m_neighbors        = [[+1, -1, 0], [0, -1, +1], [-1, 0, +1], [-1, +1, 0], [0, +1, -1], [+1, 0, -1]]; //массив со всеми возможными вариантам координат для поиска соседей выбранного гексогена
 
 let l,           //соответствует длине L на рисунке. Вводится пользователем
     m,           //соответствует длине M на рисунке. Вводится пользователем
