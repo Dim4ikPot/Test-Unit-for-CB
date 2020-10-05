@@ -2,7 +2,7 @@
     fill: lightgray;
 }
 
-.table_cell {
+#domainInfo > thead th {
     border: 2px solid black;
     padding: 5px 10px;
     max-width: 200px;
