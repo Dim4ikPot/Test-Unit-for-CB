@@ -148,7 +148,7 @@ function AddElementToDomain(newElement, domain, autoFill) {
     newElement.children[1].setAttribute("font-size", "50px");
     newElement.style.fill = domain;
     m_domainElements[domain].push(newElement);
-    m_domainCellsCnt++;
+    m_trueDomainCellsCnt++;
     if (autoFill)
         AddInfoIntoTable();
 }
@@ -198,7 +198,7 @@ function AddInfoIntoTable() {
                 cellInfo = "???";
                 break;
             case 3:
-                cellInfo = m_domainCellsCnt;
+                cellInfo = m_domainCellsCnt + ", " + m_trueDomainCellsCnt;
                 break;
         }
         newTableCell.innerText = cellInfo;
@@ -214,7 +214,10 @@ function AutoFilling() {
 
     ResetVariables();
 
-    document.querySelectorAll("#hex_grid > svg > g > g").forEach((element) => {
+    const cells = document.querySelectorAll("#hex_grid > svg > g > g");
+    m_domainCellsCnt = cells.length;
+
+    cells.forEach((element) => {
         randomProb = Math.ceil(Math.random() * 100);
         if (randomProb <= probability)
             SetDomain(element, true);
@@ -250,6 +253,7 @@ function SetInputVisualInfo(value, param) {
 function ResetVariables() {
     m_domainInfo.innerHTML = "";
     m_domainCellsCnt = 0;
+    m_trueDomainCellsCnt = 0;
     for (const value in m_domainElements) {
         for (let i = 0; i < m_domainElements[value].length; i++) {
             m_domainElements[value][i].style.fill = "white";
